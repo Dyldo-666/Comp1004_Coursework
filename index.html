@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,10 +8,20 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>4x4 Number Sliding Puzzle</h1>
+    <header>
+        <h1>4x4 Number Sliding Puzzle</h1>
+        <div class="dropdown">
+            <button class="dropbtn">☰ Menu</button>
+            <div class="dropdown-content">
+                <a href="#" onclick="shuffleTiles()">Shuffle</a>
+                <a href="#" onclick="createPuzzle()">Restart</a>
+            </div>
+        </div>
+    </header>
+
     <div id="puzzle-container"></div>
-    <button onclick="shuffleTiles()">Shuffle</button>
     <p id="message"></p>
+
     <script src="app.js"></script>
 </body>
 </html>
