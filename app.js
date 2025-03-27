@@ -30,7 +30,8 @@ function isSolvable(tiles) {
 }
 
 function renderPuzzle() {
-    puzzleContainer.innerHTML = "";
+    console.log("Rendering puzzle...");
+    puzzleContainer.innerHTML = "";  // Clear old tiles
     tiles.forEach((tile, index) => {
         const tileElement = document.createElement("div");
         tileElement.classList.add("tile");
@@ -42,6 +43,8 @@ function renderPuzzle() {
         }
         puzzleContainer.appendChild(tileElement);
     });
+    console.log("Tiles:", tiles);
+    console.log("Puzzle container:", document.getElementById("puzzle-container").innerHTML);
 }
 
 function moveTile(index) {
@@ -63,4 +66,6 @@ function checkWin() {
     }
 }
 
-createPuzzle();
+window.onload = function() {
+    createPuzzle();
+};
