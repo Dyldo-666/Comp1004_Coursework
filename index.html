@@ -1,26 +1,39 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sliding Puzzle Game</title>
+    <title>Game Recommender</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>4x4 Number Sliding Puzzle</h1>
+        <h1>Game Recommender</h1>
         <div class="dropdown">
             <button class="dropbtn">☰ Menu</button>
-            <div class="dropdown-content">
-                <a href="#" onclick="shuffleTiles()">Shuffle</a>
-                <a href="#" onclick="createPuzzle()">Restart</a>
+            <div class="dropdown-content" id="menu-options">
+                <a href="#" onclick="showPuzzle()">Play 4x4 Puzzle</a>
             </div>
         </div>
     </header>
 
-    <div id="puzzle-container"></div>
-    <p id="message"></p>
+    <!-- Home Screen -->
+    <div id="home-screen">
+        <h2>Welcome to Game Recommender</h2>
+        <p>Discover the best games for you! Use the menu to access different features.</p>
+    </div>
+
+    <!-- Puzzle (Initially Hidden) -->
+    <div id="puzzle-container-wrapper" style="display: none;">
+        <h2>4x4 Number Sliding Puzzle</h2>
+        <p class="instructions">
+            Move the tiles by clicking on them to arrange them in order (1-15). (1-4)(5-8)(9-12)(13-15) <br>
+            Use the **Shuffle** button to randomize the tiles in the drop down. <br>
+            Solve the puzzle by placing all numbers in sequence with the empty space at the end by clicking the number next to the empty space.
+        </p>
+        <div id="puzzle-container"></div>
+        <p id="message"></p>
+    </div>
 
     <script src="app.js"></script>
 </body>
