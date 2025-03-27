@@ -8,7 +8,7 @@ body {
     padding: 0;
 }
 
-/* Header with Dropdown */
+/* Header */
 header {
     display: flex;
     justify-content: space-between;
@@ -19,7 +19,7 @@ header {
 
 h1 {
     margin: 0;
-    font-size: 22px;
+    font-size: 24px;
 }
 
 /* Dropdown Menu */
@@ -47,7 +47,7 @@ h1 {
     position: absolute;
     right: 0;
     background-color: white;
-    min-width: 120px;
+    min-width: 140px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     overflow: hidden;
@@ -68,7 +68,16 @@ h1 {
     display: block;
 }
 
+/* Home Screen */
+#home-screen {
+    padding: 50px;
+}
+
 /* Puzzle Grid */
+#puzzle-container-wrapper {
+    padding: 20px;
+}
+
 #puzzle-container {
     display: grid;
     grid-template-columns: repeat(4, 80px);
@@ -169,6 +178,16 @@ h1 {
     filter: brightness(1.2);
 }
 
+/* Instructions for 4x4 game */
+.instructions {
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px auto;
+    width: 80%;
+    color: white;
+}
 /* Click Effect */
 .tile:active {
     transform: scale(0.9);
