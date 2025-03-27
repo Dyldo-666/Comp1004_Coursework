@@ -1,19 +1,22 @@
 const puzzleContainer = document.getElementById("puzzle-container");
 const message = document.getElementById("message");
+const homeScreen = document.getElementById("home-screen");
+const puzzleWrapper = document.getElementById("puzzle-container-wrapper");
+const menuOptions = document.getElementById("menu-options");
 
 let tiles = [];
 const size = 4; // 4x4 grid
 
 function createPuzzle() {
-    tiles = [...Array(15).keys()].map(n => n + 1); // Numbers 1-15
-    tiles.push(null); // Empty space
+    tiles = [...Array(15).keys()].map(n => n + 1);
+    tiles.push(null);
     shuffleTiles();
 }
 
 function shuffleTiles() {
     do {
         tiles = tiles.sort(() => Math.random() - 0.5);
-    } while (!isSolvable(tiles)); // Ensure the puzzle is solvable
+    } while (!isSolvable(tiles));
     renderPuzzle();
 }
 
@@ -30,8 +33,7 @@ function isSolvable(tiles) {
 }
 
 function renderPuzzle() {
-    console.log("Rendering puzzle...");
-    puzzleContainer.innerHTML = "";  // Clear old tiles
+    puzzleContainer.innerHTML = "";
     tiles.forEach((tile, index) => {
         const tileElement = document.createElement("div");
         tileElement.classList.add("tile");
@@ -43,8 +45,6 @@ function renderPuzzle() {
         }
         puzzleContainer.appendChild(tileElement);
     });
-    console.log("Tiles:", tiles);
-    console.log("Puzzle container:", document.getElementById("puzzle-container").innerHTML);
 }
 
 function moveTile(index) {
@@ -66,6 +66,24 @@ function checkWin() {
     }
 }
 
-window.onload = function() {
+/* Show Home Screen & Update Menu */
+function showHome() {
+    homeScreen.style.display = "block";
+    puzzleWrapper.style.display = "none";
+
+    menuOptions.innerHTML = `<a href="#" onclick="showPuzzle()">Play 4x4 Puzzle</a>`;
+}
+
+/* Show Puzzle & Update Menu */
+function showPuzzle() {
+    homeScreen.style.display = "none";
+    puzzleWrapper.style.display = "block";
     createPuzzle();
-};
+
+    menuOptions.innerHTML = `
+        <a href="#" onclick="showHome()">Home</a>
+        <a href="#" onclick="shuffleTiles()">Shuffle</a>
+    `;
+}
+
+showHome();
