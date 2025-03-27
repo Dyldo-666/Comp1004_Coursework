@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+#puzzle-container {
+    display: grid;
+    grid-template-columns: repeat(4, 80px);
+    grid-template-rows: repeat(4, 80px);
+    gap: 5px;
+    justify-content: center;
+    margin: 20px auto;
+    background-color: #222;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.tile {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #ffffff;
+    border: 2px solid #000;
+    cursor: pointer;
+    user-select: none;
+}
+
+.empty {
+    background-color: #ccc;
+    border: none;
+}
