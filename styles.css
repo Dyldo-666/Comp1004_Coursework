@@ -1,13 +1,74 @@
+/* General Page Styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     text-align: center;
-    background-color: #f4f4f4;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header with Dropdown */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 h1 {
-    margin-top: 20px;
+    margin: 0;
+    font-size: 22px;
 }
 
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #ff4081;
+    color: white;
+    padding: 10px 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+    .dropbtn:hover {
+        background-color: #e91e63;
+    }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+    .dropdown-content a {
+        color: black;
+        padding: 10px;
+        text-decoration: none;
+        display: block;
+    }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Puzzle Grid */
 #puzzle-container {
     display: grid;
     grid-template-columns: repeat(4, 80px);
@@ -15,12 +76,12 @@ h1 {
     gap: 5px;
     justify-content: center;
     margin: 20px auto;
-    background-color: #222;
-    padding: 5px;
+    background: #333;
+    padding: 10px;
     border-radius: 10px;
-    border: 2px solid red;
 }
 
+/* Tiles */
 .tile {
     width: 80px;
     height: 80px;
@@ -29,13 +90,86 @@ h1 {
     justify-content: center;
     font-size: 24px;
     font-weight: bold;
-    background-color: #ffffff;
-    border: 2px solid #000;
+    color: white;
+    border-radius: 5px;
     cursor: pointer;
-    user-select: none;
+    transition: transform 0.1s ease-in-out;
 }
 
+    /* Tile Colors */
+    .tile:nth-child(1) {
+        background: #ff6f61;
+    }
+
+    .tile:nth-child(2) {
+        background: #ffcc5c;
+    }
+
+    .tile:nth-child(3) {
+        background: #88d8b0;
+    }
+
+    .tile:nth-child(4) {
+        background: #6b5b95;
+    }
+
+    .tile:nth-child(5) {
+        background: #ff6f61;
+    }
+
+    .tile:nth-child(6) {
+        background: #ffcc5c;
+    }
+
+    .tile:nth-child(7) {
+        background: #88d8b0;
+    }
+
+    .tile:nth-child(8) {
+        background: #6b5b95;
+    }
+
+    .tile:nth-child(9) {
+        background: #ff6f61;
+    }
+
+    .tile:nth-child(10) {
+        background: #ffcc5c;
+    }
+
+    .tile:nth-child(11) {
+        background: #88d8b0;
+    }
+
+    .tile:nth-child(12) {
+        background: #6b5b95;
+    }
+
+    .tile:nth-child(13) {
+        background: #ff6f61;
+    }
+
+    .tile:nth-child(14) {
+        background: #ffcc5c;
+    }
+
+    .tile:nth-child(15) {
+        background: #88d8b0;
+    }
+
+/* Empty Tile */
 .empty {
-    background-color: #ccc;
+    background-color: #444;
     border: none;
+}
+
+/* Hover Effect */
+.tile:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+/* Click Effect */
+.tile:active {
+    transform: scale(0.9);
 }
