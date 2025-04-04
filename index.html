@@ -12,27 +12,69 @@
         <div class="dropdown">
             <button class="dropbtn">☰ Menu</button>
             <div class="dropdown-content" id="menu-options">
-                <a href="#" onclick="showPuzzle()">Play 4x4 Puzzle</a>
+                <a href="#" onclick="showLogin()">Login</a>
             </div>
         </div>
     </header>
 
-    <!-- Home Screen -->
-    <div id="home-screen">
+    <!-- Login Screen -->
+    <div id="login-screen">
         <h2>Welcome to Game Recommender</h2>
-        <p>Discover the best games for you! Use the menu to access different features.</p>
+        <p>Enter your name to start:</p>
+        <input type="text" id="player-name" placeholder="Your Name">
+        <button onclick="submitLogin()">Start</button>
     </div>
 
-    <!-- Puzzle (Initially Hidden) -->
+    <!-- Home Screen -->
+    <div id="home-screen" style="display: none;">
+        <h2>Welcome, <span id="display-name"></span>!</h2>
+        <p>Use the menu to access different games.</p>
+    </div>
+
+    <!-- Puzzle Game -->
     <div id="puzzle-container-wrapper" style="display: none;">
         <h2>4x4 Number Sliding Puzzle</h2>
-        <p class="instructions">
-            Move the tiles by clicking on them to arrange them in order (1-15). (1-4)(5-8)(9-12)(13-15) <br>
-            Use the **Shuffle** button to randomize the tiles in the drop down. <br>
-            Solve the puzzle by placing all numbers in sequence with the empty space at the end by clicking the number next to the empty space.
-        </p>
+        <p class="instructions">Arrange the tiles in order from 1 to 15.</p>
+        <p class="instructions">To move the tiles hit the number adjacent to the empty tile.</p>
+        <p><strong>Time: <span id="timer">0:00</span></strong></p>
         <div id="puzzle-container"></div>
         <p id="message"></p>
+        <div id="leaderboard" style="display: none;">
+            <h2>Leaderboard</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboard-body"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Aim Trainer -->
+    <div id="aim-trainer-wrapper" style="display: none;">
+        <h2>Aim Trainer</h2>
+        <p>Click the targets as fast as you can!</p>
+        <button onclick="startAimTrainer()">Start</button>
+        <p id="aim-timer-display" style="font-size: 18px; color: white; margin-top: 10px;"></p>
+        <div id="aim-trainer-container"></div>
+        <p id="aim-score"></p>
+        <div id="aim-leaderboard" style="display: none;">
+            <h2>Aim Trainer Leaderboard</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Player</th>
+                        <th>Time (s)</th>
+                    </tr>
+                </thead>
+                <tbody id="aim-leaderboard-body"></tbody>
+            </table>
+        </div>
     </div>
 
     <script src="app.js"></script>
