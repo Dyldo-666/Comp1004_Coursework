@@ -1,9 +1,38 @@
-/* General Page Styling */
+/* Login Screen */
+#login-screen {
+    margin-top: 50px;
+}
+
+    #login-screen input {
+        padding: 10px;
+        margin: 10px;
+        font-size: 18px;
+        border: 1px solid #64b5f6;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    #login-screen button {
+        padding: 10px 15px;
+        font-size: 18px;
+        background-color: #42a5f5;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        #login-screen button:hover {
+            background-color: #2196f3;
+        }
+
+
+/* General Styling */
 body {
-    font-family: 'Arial', sans-serif;
-    text-align: center;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    font-family: Arial, sans-serif;
+    background: linear-gradient(120deg, #1e3c72, #2a5298);
     color: white;
+    text-align: center;
     margin: 0;
     padding: 0;
 }
@@ -13,60 +42,59 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
-    background-color: rgba(0, 0, 0, 0.6);
+    padding: 15px 20px;
+    background: #0d47a1;
+    color: white;
 }
 
 h1 {
     margin: 0;
-    font-size: 24px;
 }
 
-/* Dropdown Menu */
+h1 {
+    margin: 0;
+}
+
+/ /* Dropdown Menu */
 .dropdown {
     position: relative;
-    display: inline-block;
 }
 
 .dropbtn {
-    background-color: #ff4081;
+    background: #1565c0;
     color: white;
-    padding: 10px 16px;
-    font-size: 16px;
     border: none;
+    padding: 10px 15px;
     cursor: pointer;
+    font-size: 18px;
     border-radius: 5px;
 }
-
-    .dropbtn:hover {
-        background-color: #e91e63;
-    }
 
 .dropdown-content {
     display: none;
     position: absolute;
     right: 0;
-    background-color: white;
-    min-width: 140px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    background: #1976d2;
+    min-width: 150px;
     border-radius: 5px;
     overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
-
-    .dropdown-content a {
-        color: black;
-        padding: 10px;
-        text-decoration: none;
-        display: block;
-    }
-
-        .dropdown-content a:hover {
-            background-color: #f1f1f1;
-        }
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+.dropdown-content a {
+    color: white;
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+}
+
+    .dropdown-content a:hover {
+        background: #2196f3;
+    }
 
 /* Home Screen */
 #home-screen {
@@ -85,24 +113,29 @@ h1 {
     gap: 5px;
     justify-content: center;
     margin: 20px auto;
-    background: #333;
-    padding: 10px;
-    border-radius: 10px;
 }
 
-/* Tiles */
 .tile {
-    width: 80px;
-    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 24px;
+    background: #64b5f6;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    user-select: none;
     font-weight: bold;
     color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform 0.1s ease-in-out;
+}
+
+    .tile:hover {
+        background: #42a5f5;
+    }
+
+.empty {
+    background: none;
+    box-shadow: none;
 }
 
     /* Tile Colors */
@@ -168,7 +201,7 @@ h1 {
 
 /* Empty Tile */
 .empty {
-    background-color: #444;
+    background-color: rgba(0, 0, 0, 0.2);
     border: none;
 }
 
@@ -191,4 +224,89 @@ h1 {
 /* Click Effect */
 .tile:active {
     transform: scale(0.9);
+}
+
+/* 4x4 Leaderboard */
+#leaderboard {
+    margin: 20px auto;
+    width: 60%;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #1e88e5;
+    color: white;
+}
+
+th, td {
+    border: 1px solid #64b5f6;
+    padding: 10px;
+}
+
+th {
+    background-color: #1565c0;
+}
+
+/* Aim Trainer */
+#aim-trainer-wrapper {
+    text-align: center;
+}
+
+#aim-trainer-container {
+    width: 500px;
+    height: 500px;
+    background: #64b5f6;
+    margin: 20px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    border: 5px solid #1e3c72;
+}
+
+.target {
+    width: 50px;
+    height: 50px;
+    background: url('target.png') no-repeat center;
+    background-size: contain;
+    position: absolute;
+    cursor: pointer;
+}
+
+    .target:hover {
+        transform: scale(1.1);
+    }
+
+/* Aim Trainer Leaderboard */
+#aim-leaderboard {
+    margin: 20px auto;
+    width: 60%; 
+    text-align: center;
+    display: none; /* Hidden by default */
+    position: center;
+    
+}
+
+    #aim-leaderboard table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #1e88e5;
+        color: white;
+    }
+
+    #aim-leaderboard th, #aim-leaderboard td {
+        border: 1px solid #64b5f6;
+        padding: 10px;
+    }
+
+    #aim-leaderboard th {
+        background-color: #1565c0;
+    }
+
+/* Instructions */
+.instructions {
+    font-size: 16px;
+    color: #cfd8dc;
+    margin-bottom: 10px;
 }
