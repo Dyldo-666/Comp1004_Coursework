@@ -9,10 +9,14 @@
 <body>
     <header>
         <h1>Game Recommender</h1>
-        <div class="dropdown">
-            <button class="dropbtn">☰ Menu</button>
+        <div class="dropdown" id="dropdown-menu" style="display: none;">
+            <button class="dropbtn"> Menu</button>
             <div class="dropdown-content" id="menu-options">
-                <a href="#" onclick="showLogin()">Login</a>
+                <a href="#" onclick="showHome()">Home</a>
+                <a href="#" onclick="showPuzzle()">4x4 Puzzle</a>
+                <a href="#" onclick="showAimTrainer()">Aim Trainer</a>
+                <a href="#" onclick="showMemoryGame()">Memory Game</a>
+                <a href="#" onclick="signOut()">Sign Out</a>
             </div>
         </div>
     </header>
@@ -28,7 +32,18 @@
     <!-- Home Screen -->
     <div id="home-screen" style="display: none;">
         <h2>Welcome, <span id="display-name"></span>!</h2>
-        <p>Use the menu to access different games.</p>
+        <p>Which genre of game do you like?</p>
+
+        <select id="genre-choice" style="padding: 10px; font-size: 16px; border-radius: 5px;">
+            <option value="">Select a genre</option>
+            <option value="memory">Memory</option>
+            <option value="shooter">Shooter / Aimer</option>
+            <option value="puzzle">Puzzle</option>
+        </select>
+
+        <br><br>
+
+        <button onclick="recommendGame()" style="padding: 10px 20px; background-color: #42a5f5; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;">Recommend Me!</button>
     </div>
 
     <!-- Puzzle Game -->
@@ -36,6 +51,7 @@
         <h2>4x4 Number Sliding Puzzle</h2>
         <p class="instructions">Arrange the tiles in order from 1 to 15.</p>
         <p class="instructions">To move the tiles hit the number adjacent to the empty tile.</p>
+        <button onclick="restartPuzzle()" style="margin-bottom: 15px; padding: 10px 20px; background-color: #42a5f5; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;">Restart</button>
         <p><strong>Time: <span id="timer">0:00</span></strong></p>
         <div id="puzzle-container"></div>
         <p id="message"></p>
@@ -55,10 +71,10 @@
     </div>
 
     <!-- Aim Trainer -->
-    <div id="aim-trainer-wrapper" style="display: none;">
+    <div id="aim-trainer-wrapper" class="game-section" style="display: none;">
         <h2>Aim Trainer</h2>
         <p>Click the targets as fast as you can!</p>
-        <button onclick="startAimTrainer()">Start</button>
+        <button id="aim-trainer-start-button" onclick="startAimTrainer()" style="margin-bottom: 15px; padding: 10px 20px; background-color: #42a5f5; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;"> Start</button>
         <p id="aim-timer-display" style="font-size: 18px; color: white; margin-top: 10px;"></p>
         <div id="aim-trainer-container"></div>
         <p id="aim-score"></p>
@@ -76,7 +92,31 @@
             </table>
         </div>
     </div>
+    <!-- Memory Game -->
+    <div id="memory-game-wrapper" style="display: none;">
+        <h2>Memory Game</h2>
+        <p>Flip two cards to find a match. Try to complete the board as fast as you can!</p>
 
+        <!-- Restart Button -->
+        <button onclick="restartMemoryGame()" style="margin-bottom: 15px; padding: 10px 20px; background-color: #42a5f5; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;"> Restart</button>
+        <div id="memory-game-info">
+            <p id="memory-timer-display">Time: 0.00s</p>
+        </div>
+        <div id="memory-board" class="memory-board"></div>
+        <p id="memory-complete-message"></p>
+        <div id="memory-leaderboard" style="display: none;">
+            <h3>Memory Game Leaderboard</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Player</th>
+                        <th>Time (s)</th>
+                    </tr>
+                </thead>
+                <tbody id="memory-leaderboard-body"></tbody>
+            </table>
+        </div>
+    </div>
     <script src="app.js"></script>
 </body>
 </html>
